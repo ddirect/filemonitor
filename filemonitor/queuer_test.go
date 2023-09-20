@@ -12,7 +12,7 @@ func newQueuer(channelDepth int) (*queuer, <-chan FileStatus) {
 	return StartQueuer(&Context{CheckerChan: checkerChan}, channelDepth), checkerChan
 }
 
-func TestFillAndEmpty(t *testing.T) {
+func TestQueuerFillAndEmpty(t *testing.T) {
 	q, outChan := newQueuer(3)
 	defer q.StopAndWait()
 
@@ -69,7 +69,7 @@ func TestFillAndEmpty(t *testing.T) {
 	}
 }
 
-func TestItemsAreNotRepeatedUntilError(t *testing.T) {
+func TestQueuerItemsAreNotRepeatedUntilError(t *testing.T) {
 	q, outChan := newQueuer(0)
 	defer q.StopAndWait()
 

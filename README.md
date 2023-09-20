@@ -44,5 +44,6 @@ To parallelize the workload, `filemonitor` employs a pipelined architecture, usi
 
 ## TODO
 - Add tests for checker, hasher and sender
+- Improve coverage of existing tests
 - Tweak file checking intervals
 - Tweak the number of workers
