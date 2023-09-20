@@ -20,6 +20,11 @@ func (s FileStatus) WithMinDelay() FileStatus {
 	return s
 }
 
+func (s FileStatus) WithoutId() FileStatus {
+	s.Id = ""
+	return s
+}
+
 func (s FileStatus) Schedule(sink chan<- FileStatus) {
 	checkDelay := max(s.checkDelay, MIN_CHECK_DELAY)
 	s.checkDelay = min(checkDelay*2, MAX_CHECK_DELAY)

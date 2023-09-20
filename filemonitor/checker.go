@@ -1,6 +1,7 @@
 package main
 
 import (
+	"filemonitor/common"
 	"filemonitor/common/log"
 	"io"
 	"os"
@@ -17,6 +18,13 @@ type checker struct {
 
 func (c *checker) HandleItem(status FileStatus) {
 	log.Debug("CHK <- %v", status)
+	if status.Id == "" {
+		if newStatus, err := c.ctx.Db.LoadDocumentBy(common.FILE_INFO_FILE_FIELD_NAME, status.FileName); err == nil {
+			status = newStatus
+		} else {
+			log.Error("LoadDocumentBy: %s", err)
+		}
+	}
 	info, err := os.Lstat(status.FileName)
 	if err != nil {
 		c.ctx.HandleFileError(err, "checker", status)

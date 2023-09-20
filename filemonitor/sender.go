@@ -1,9 +1,7 @@
 package main
 
 import (
-	"filemonitor/common"
 	"filemonitor/common/log"
-	"filemonitor/immudb"
 )
 
 func NewSender(ctx *Context) *sender {
@@ -17,11 +15,15 @@ type sender struct {
 func (s *sender) HandleItem(status FileStatus) {
 	log.Debug("SND <- %v", status)
 	log.Info("send %s", status.FileName)
-	if _, err := s.ctx.Db.UpdateDocumentBy(common.FILE_INFO_FILE_FIELD_NAME, status.FileName, status); err != nil {
-		if immudb.HttpStatusCode(err) != 404 {
-			log.Error("UpdateDocumentBy: %s", err)
-		} else if _, err := s.ctx.Db.CreateDocument(status); err != nil {
+	if status.Id == "" {
+		if id, err := s.ctx.Db.CreateDocument(status); err != nil {
 			log.Error("CreateDocument: %s", err)
+		} else {
+			status.Id = id
+		}
+	} else {
+		if err := s.ctx.Db.UpdateDocumentById(status.Id, status.WithoutId()); err != nil {
+			log.Error("UpdateDocumentBy: %s", err)
 		}
 	}
 	status.WithMinDelay().Schedule(s.ctx.CheckerChan)
