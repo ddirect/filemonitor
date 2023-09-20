@@ -31,15 +31,15 @@ func main() {
 	} else {
 		if audit {
 			if native {
-				auditByNativeId(vault, id)
+				auditDocumentByNativeId(vault, id)
 			} else {
-				auditById(vault, id)
+				auditDocumentById(vault, id)
 			}
 		} else {
 			if native {
-				showByNativeId(vault, id)
+				showDocumentByNativeId(vault, id)
 			} else {
-				showById(vault, id)
+				showDocumentById(vault, id)
 			}
 		}
 	}

@@ -21,31 +21,33 @@ func showRevision(rev Revision) {
 }
 
 func showAll(v Vault) {
-	common.ExitIf(v.SearchDocuments(nil, func(rev Revision) { showDocument(rev.Document) }))
+	common.ExitIf(v.SearchDocuments(nil, func(rev Revision) {
+		showDocument(rev.Document)
+	}))
 }
 
-func loadDocument(v Vault, id string) FileInfo {
-	doc, err := v.LoadDocumentBy(common.FILE_INFO_FILE_FIELD_NAME, id)
-	common.ExitIf(err)
-	return doc
+func showDocumentById(v Vault, id string) {
+	showDocument(loadDocumentById(v, id))
 }
 
-func showById(v Vault, id string) {
-	showDocument(loadDocument(v, id))
-}
-
-func showByNativeId(v Vault, nativeId string) {
+func showDocumentByNativeId(v Vault, nativeId string) {
 	doc, err := v.LoadDocumentById(nativeId)
 	common.ExitIf(err)
 	showDocument(doc)
 }
 
-func auditById(v Vault, id string) {
-	auditByNativeId(v, loadDocument(v, id).Id)
+func auditDocumentById(v Vault, id string) {
+	auditDocumentByNativeId(v, loadDocumentById(v, id).Id)
 }
 
-func auditByNativeId(v Vault, nativeId string) {
+func auditDocumentByNativeId(v Vault, nativeId string) {
 	common.ExitIf(v.AuditDocument(nativeId, false, func(rev Revision) {
 		showRevision(rev)
 	}))
+}
+
+func loadDocumentById(v Vault, id string) FileInfo {
+	doc, err := v.LoadDocumentBy(common.FILE_INFO_FILE_FIELD_NAME, id)
+	common.ExitIf(err)
+	return doc
 }
