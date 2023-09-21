@@ -18,6 +18,9 @@ When a new file is found, a new immudb document is created; when a file is modif
 
 It is possible to audit the immudb document using `viewer`.
 
+## Building
+Use the `./build_all.sh` script from the root of the repository. The binaries will be written to the `bin` directory.
+
 ## Synopsis
 Run filemonitor on a directory:
 
