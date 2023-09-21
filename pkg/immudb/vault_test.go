@@ -1,7 +1,7 @@
 package immudb
 
 import (
-	cm "filemonitor/common_test"
+	cm "filemonitor/pkg/common_test"
 	"fmt"
 	"os"
 	"reflect"

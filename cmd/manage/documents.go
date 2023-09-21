@@ -1,8 +1,8 @@
 package main
 
 import (
-	"filemonitor/common"
-	"filemonitor/immudb"
+	"filemonitor/pkg/common"
+	"filemonitor/pkg/immudb"
 	"fmt"
 )
 

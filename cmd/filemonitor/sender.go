@@ -1,9 +1,9 @@
 package main
 
 import (
-	"filemonitor/common"
-	"filemonitor/common/log"
-	"filemonitor/immudb"
+	"filemonitor/pkg/common"
+	"filemonitor/pkg/immudb"
+	"filemonitor/pkg/log"
 )
 
 func NewSender(ctx *Context) *sender {

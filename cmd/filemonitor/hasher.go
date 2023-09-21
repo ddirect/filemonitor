@@ -2,7 +2,7 @@ package main
 
 import (
 	"crypto/sha256"
-	"filemonitor/common/log"
+	"filemonitor/pkg/log"
 	"hash"
 	"io"
 	"os"

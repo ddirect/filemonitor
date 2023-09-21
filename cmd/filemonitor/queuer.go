@@ -1,8 +1,8 @@
 package main
 
 import (
-	"filemonitor/common"
-	"filemonitor/common/log"
+	"filemonitor/pkg/common"
+	"filemonitor/pkg/log"
 	"sync"
 )
 

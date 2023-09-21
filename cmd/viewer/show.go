@@ -2,7 +2,7 @@ package main
 
 import (
 	"encoding/hex"
-	"filemonitor/common"
+	"filemonitor/pkg/common"
 	"fmt"
 	"time"
 )

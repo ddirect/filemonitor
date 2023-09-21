@@ -1,7 +1,7 @@
 package main
 
 import (
-	"filemonitor/immudb"
+	"filemonitor/pkg/immudb"
 	"flag"
 	"fmt"
 )

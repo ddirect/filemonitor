@@ -1,7 +1,7 @@
 package main
 
 import (
-	cm "filemonitor/common_test"
+	cm "filemonitor/pkg/common_test"
 	"sync"
 	"testing"
 	"time"

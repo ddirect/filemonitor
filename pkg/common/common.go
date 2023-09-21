@@ -2,7 +2,7 @@ package common
 
 import (
 	"encoding/json"
-	db "filemonitor/immudb"
+	db "filemonitor/pkg/immudb"
 	"fmt"
 	"os"
 )

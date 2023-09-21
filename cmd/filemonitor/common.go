@@ -1,9 +1,9 @@
 package main
 
 import (
-	"filemonitor/common"
-	"filemonitor/common/log"
-	"filemonitor/filemonitor/task"
+	"filemonitor/pkg/common"
+	"filemonitor/pkg/log"
+	"filemonitor/pkg/task"
 )
 
 type Task = task.Task[FileStatus]

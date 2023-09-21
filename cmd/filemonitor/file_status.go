@@ -1,7 +1,7 @@
 package main
 
 import (
-	"filemonitor/common"
+	"filemonitor/pkg/common"
 	"time"
 )
 

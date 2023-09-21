@@ -1,7 +1,7 @@
 package main
 
 import (
-	"filemonitor/common/log"
+	"filemonitor/pkg/log"
 	"io"
 	"os"
 	"path/filepath"

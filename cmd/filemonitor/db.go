@@ -1,8 +1,8 @@
 package main
 
 import (
-	"filemonitor/common"
-	db "filemonitor/immudb"
+	"filemonitor/pkg/common"
+	db "filemonitor/pkg/immudb"
 	"net/http"
 )
 

@@ -1,7 +1,7 @@
 package immudb
 
 import (
-	"filemonitor/common/log"
+	"filemonitor/pkg/log"
 	"fmt"
 	"os"
 )
